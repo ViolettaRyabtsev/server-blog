@@ -1,2 +1,4 @@
 /ssh
+.env
+node_modules
 writing-blog.pem
