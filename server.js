@@ -9,7 +9,7 @@ app.use(express.json({ strict: false }));
 app.get("/", (req, res) => {
   conn.query("SELECT * FROM reviews", (err, rows) => {
     if (err) throw err;
-    console.log("The data from comments table are: \n", rows);
+
     // res.json(rows);
     res.send(JSON.stringify(rows));
   });
@@ -22,6 +22,14 @@ app.post("/addComment", async (req, res) => {
   conn.query(
     `INSERT INTO reviews (name, body, id) VALUES ('${name}', '${body}', '${id}')`
   );
+  res.status(201);
+  res.send();
+});
+
+app.post("/users/addEmail", async (req, res) => {
+  const email = req.body.email;
+  console.log(email, "email");
+  conn.query(`INSERT INTO emails (emails) VALUES ('${email}}')`);
   res.status(201);
   res.send();
 });
