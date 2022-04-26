@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addComment", async (req, res) => {
-  const name = req.body.name; 
+  const name = req.body.name;
   const body = req.body.body;
   const id = req.body.id;
   conn.query(
@@ -33,7 +33,6 @@ app.post("/users/addEmail", async (req, res) => {
   res.status(201);
   res.send();
 });
-
 
 app.listen(3001, () => {
   console.log("Server is running at port 3001");
