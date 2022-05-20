@@ -3,3 +3,4 @@ CREATE TABLE reviews(
     body VARCHAR(500),
     id VARCHAR(30)
 );
+
